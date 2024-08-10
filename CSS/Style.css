@@ -1,0 +1,245 @@
+#play-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-out 0.5s; /* 1s delay */
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+
+@font-face {
+    font-family: Pixel;
+    src: url('../Contents/Fonts/fusion-pixel-12px-monospaced-zh_hans.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Pixel';
+}
+
+
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .iframe-container iframe {
+    opacity: 0;
+    transition: opacity 2s ease-in; /* 2秒的透明度渐变效果 */
+  }
+
+  .iframe-container iframe.visible {
+    opacity: 1; /* 完全可见 */
+  }
+
+  .floating-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 1s forwards, float 3s infinite cubic-bezier(0.6, 0.05, 0.2, 0.95);
+}
+
+.contain3 {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px; /* 行间距 */
+    max-width: 800px; /* 根据需要调整容器宽度 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+.row1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* 列间距 */
+}
+
+.row1 .column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row1 img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1),
+                0px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.row1 img:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15),
+                0px 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.row2 {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row2 input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+  /*Heart*/
+  .heart {
+    width: 100px;
+    height: 100px;
+    background-color: #ff597d;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.5s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: #ff597d;
+    border-radius: 50%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.heart:before {
+    top: -50px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 50px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+/*end*/
+
+/*Container*/
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.text {
+    flex: 1;
+}
+
+.image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1), 
+                0px 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 12px; /* 圆角，可以根据需要调整 */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+img:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15), 
+                0px 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 遮罩层样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 弹出大图样式 */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* 关闭按钮 */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/*end*/

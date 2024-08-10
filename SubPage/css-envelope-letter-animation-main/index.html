@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <p><strong style="font-size: 12px;">小姚~</strong></p>
+                        <p style="font-size: 8px;">
+                            <strong>七夕快乐呀！</strong><br>
+                            <strong>愿你的每一天都充满阳光和快乐！</strong><br>
+                            <strong>愿你永远被爱着疼着~</strong><br>
+                            <strong>超级超级喜欢你！</strong><br>
+                        </p>
+                        <div style="text-align: right; font-size: 12px;">
+                        <strong>小王</strong><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <!-- 添加音频元素 -->
+    <audio id="audio" src="../../Contents/Audio/Letter.wav"></audio>
+
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        const audio = document.getElementById('audio');
+
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+
+            console.log('Envelope clicked');
+
+            // 检查信封是否打开
+            if (envelope.classList.contains('flap')) {
+                console.log('Playing audio');
+                audio.play().catch(error => {
+                    console.error('Audio play error:', error);
+                });
+            } else {
+                console.log('Pausing audio');
+                audio.pause();
+                audio.currentTime = 0; // 重置音频
+            }
+        });
+    </script>
+</body>
+</html>
